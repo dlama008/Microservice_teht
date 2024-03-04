@@ -52,11 +52,7 @@ namespace Microservice_Teht.Controllers
                 // Deserialisoi vastaanotettu JSON-data
                 var pricesContainer = JsonConvert.DeserializeObject<PricesContainer>(content);
 
-                // Tässä kohtaa voit tehdä jotain datalle, esimerkiksi tulostaa sen
-                foreach (var priceInfo in pricesContainer.Prices)
-                {
-                    Console.WriteLine($"Price: {priceInfo.Price}, StartDate: {priceInfo.StartDate}, EndDate: {priceInfo.EndDate}");
-                }
+               
 
                 // Lähetä data toiselle palvelulle
                 await SendDataToOtherService(content, "https://localhost:7034/api/ElectricityData");
